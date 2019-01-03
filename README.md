@@ -24,3 +24,9 @@ yarn run test
 ```
 yarn run lint
 ```
+
+
+### 此项目的目的
+```
+学习使用less、ts等
+```
