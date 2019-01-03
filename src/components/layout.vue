@@ -15,17 +15,21 @@
       <span>王小虎</span>
     </el-header>
     <el-container>
-
       <el-aside width="200px">
-        <el-menu :default-openeds="['1', '3']">
+        <el-menu
+          :default-openeds="['1', '3']"
+          @select="selectMenu"
+        >
           <el-submenu index="1">
-            <template slot="title"><i class="el-icon-message"></i>导航一</template>
+            <template slot="title">
+              <i class="el-icon-message"></i>
+              导航一
+            </template>
             <el-menu-item-group>
-              <template slot="title">分组一</template>
               <el-menu-item index="1-1">选项1</el-menu-item>
               <el-menu-item index="1-2">选项2</el-menu-item>
             </el-menu-item-group>
-            <el-menu-item-group title="分组2">
+            <el-menu-item-group>
               <el-menu-item index="1-3">选项3</el-menu-item>
             </el-menu-item-group>
             <el-submenu index="1-4">
@@ -34,9 +38,10 @@
             </el-submenu>
           </el-submenu>
           <el-submenu index="2">
-            <template slot="title"><i class="el-icon-menu"></i>导航二</template>
+            <template slot="title">
+              <i class="el-icon-menu"></i>导航二
+            </template>
             <el-menu-item-group>
-              <template slot="title">分组一</template>
               <el-menu-item index="2-1">选项1</el-menu-item>
               <el-menu-item index="2-2">选项2</el-menu-item>
             </el-menu-item-group>
@@ -49,7 +54,9 @@
             </el-submenu>
           </el-submenu>
           <el-submenu index="3">
-            <template slot="title"><i class="el-icon-setting"></i>导航三</template>
+            <template slot="title">
+              <i class="el-icon-setting"></i>导航三
+            </template>
             <el-menu-item-group>
               <template slot="title">分组一</template>
               <el-menu-item index="3-1">选项1</el-menu-item>
@@ -65,31 +72,9 @@
           </el-submenu>
         </el-menu>
       </el-aside>
-
-      <el-container>
-        <el-main>
-          <el-table :data="tableData">
-            <el-table-column
-              prop="date"
-              label="日期"
-              width="140"
-            >
-            </el-table-column>
-            <el-table-column
-              prop="name"
-              label="姓名"
-              width="120"
-            >
-            </el-table-column>
-            <el-table-column
-              prop="address"
-              label="地址"
-            >
-            </el-table-column>
-          </el-table>
-        </el-main>
-      </el-container>
-
+      <el-main>
+        <router-view />
+      </el-main>
     </el-container>
   </el-container>
 </template>
@@ -105,6 +90,16 @@ export default {
     return {
       tableData: Array(20).fill(item)
     };
+  },
+
+  methods: {
+    selectMenu(index, indexPath) {
+      if (index == '1-1') {
+        this.$router.push('/');
+      } else {
+        this.$router.push('/about');
+      }
+    }
   }
 };
 </script>
