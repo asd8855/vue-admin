@@ -1,12 +1,22 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+     -->
+    <layout></layout>
   </div>
 </template>
+
+<script>
+import layout from './components/layout'
+export default {
+  components: {
+    layout
+  }
+}
+</script>
 
 <style lang="less">
 #app {
@@ -15,6 +25,11 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+
+}
+* {
+  margin: 0px;
+  padding: 0px;
 }
 #nav {
   padding: 30px;
