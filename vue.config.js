@@ -1,6 +1,6 @@
 module.exports = {
     // options...
-    baseUrl: "/vue-admin-page",
+    baseUrl: "/vue-admin-web",
     productionSourceMap: false
 
 }
